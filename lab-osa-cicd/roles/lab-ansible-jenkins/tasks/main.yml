@@ -1,0 +1,2 @@
+- name: Write file
+  shell: echo "Hello OSA CI/CD" > /opt/hello.txt

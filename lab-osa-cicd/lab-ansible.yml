@@ -1,0 +1,5 @@
+- hosts: lab-ansible-jenkins
+  gather_facts: true
+  user: root
+  roles:
+    - lab-osa-cicd
