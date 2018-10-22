@@ -3,7 +3,6 @@
     tasks: 
       - name: apt-get update
         apt:
-          name: "*"
           update_cache: yes
 
       - name: upgrade dist
