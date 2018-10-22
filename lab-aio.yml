@@ -1,28 +1,37 @@
 ---
   - hosts: all
     tasks: 
-      - name: apt-get update
+      - name: Update cache
         apt:
           update_cache: yes
 
-      - name: upgrade dist
+      - name: Upgrade dist
         apt:
           upgrade: dist
 
-      - name: reboot after upgrade 
+      - name: Reboot after upgrade 
         reboot:
           pre_reboot_delay: 5
           post_reboot_delay: 5
           reboot_timeout: 300
           connection_timeout: 30
         
-      - name: clone openstack-ansible project
+      - name: Clone openstack-ansible project
         git:
           repo: https://github.com/openstack/openstack-ansible.git
           dest: /opt/openstack-ansible
           version: 17.0.8
           clone: no
 
+      - name: Prepare host with bootstrap
+        shell: sleep 5 && scripts/bootstrap-ansible.sh
+        args: 
+          chdir: /opt/openstack-ansible
+
+      - name: Prepare host with bootstrap
+        shell: sleep 5 && scripts/bootstrap-aio.sh
+        args:
+          chdir: /opt/openstack-ansible
 
 
 
