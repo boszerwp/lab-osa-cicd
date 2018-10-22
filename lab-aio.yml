@@ -25,7 +25,7 @@
           repo: https://github.com/openstack/openstack-ansible.git
           dest: /opt/openstack-ansible
           version: 17.0.8
-          clone: no
+          clone: yes
 
       - name: Prepare host with bootstrap
         shell: sleep 5 && scripts/bootstrap-ansible.sh
