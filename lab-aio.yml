@@ -8,20 +8,13 @@
       - name: upgrade dist
         apt:
           upgrade: dist
-      
-      - name: reboot after upgrade 
-        register: task_result
-        shell: "sleep 5 && reboot"
-        async: 1
-        when: task_result it change
 
-      - name: wait after reboot
-        wait_for_connection:
-          connect_timeout: 20
-          sleep: 5
-          delay: 5
-          timeout: 300
-        when: task_result is change
+      - name: reboot after upgrade 
+        reboot:
+          pre_reboot_delay: 5
+          post_reboot_delay: 5
+          reboot_timeout: 300
+          connection_timeout: 30
         
 #openstack-queen
 #===============
