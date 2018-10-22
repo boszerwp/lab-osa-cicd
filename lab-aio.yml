@@ -14,8 +14,13 @@
           pre_reboot_delay: 5
           post_reboot_delay: 5
           reboot_timeout: 300
-          connection_timeout: 30
-        
+          connect_timeout: 30
+
+      - name: Set dns too google
+        lineinfile:
+          path: /etc/resolv.conf
+          line: "nameserver 8.8.8.8"
+
       - name: Clone openstack-ansible project
         git:
           repo: https://github.com/openstack/openstack-ansible.git
