@@ -16,13 +16,25 @@
           reboot_timeout: 300
           connection_timeout: 30
         
+      - name: clone openstack-ansible project
+        git:
+          repo: https://github.com/openstack/openstack-ansible.git
+          dest: /opt/openstack-ansible
+          version: 17.0.8
+          clone: no
+
+
+
+
+
+
 #openstack-queen
 #===============
 #update cache
 #dist upgrade
 #reboot
 #===============
-#git clone b 17.0.8 https://git.openstack.org/openstack/openstack-ansible
+#git clone b 17.0.8 https://git.openstack.org/openstack/openstack-ansible /opt/openstack-ansible
 #run script scripts/bootstrap-ansible.sh
 #run script scripts/bootstrap-aio.sh
 #===============
