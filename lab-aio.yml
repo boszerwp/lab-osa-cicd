@@ -9,7 +9,8 @@
         apt:
           upgrade: dist
       
-      - name: reboot after upgrade  
+      - name: reboot after upgrade 
+        register: task_result
         shell: "sleep 5 && reboot"
         async: 1
         when: task_result it change
