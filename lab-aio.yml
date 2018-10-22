@@ -1,0 +1,27 @@
+---
+  - hosts: all
+    tasks: 
+      - name: apt-get update
+        apt:
+          name: "*"
+          update_cache: yes
+
+      - name: upgrade dist
+        apt:
+          upgrade: dist
+      
+      - name: reboot
+        
+#openstack-queen
+#===============
+#update cache
+#dist upgrade
+#reboot
+#===============
+#git clone b 17.0.8 https://git.openstack.org/openstack/openstack-ansible
+#run script scripts/bootstrap-ansible.sh
+#run script scripts/bootstrap-aio.sh
+#===============
+#openstack-ansible setup-hosts.yml
+#openstack-ansible setup-infrastructure.yml
+#openstack-ansible setup-openstack.yml
