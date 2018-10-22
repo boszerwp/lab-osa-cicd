@@ -15,11 +15,6 @@
           post_reboot_delay: 5
           connect_timeout: 30
 
-      - name: Set dns too google
-        lineinfile:
-          path: /etc/resolv.conf
-          line: "nameserver 8.8.8.8"
-
       - name: Clone openstack-ansible project
         git:
           repo: https://github.com/openstack/openstack-ansible.git
@@ -46,7 +41,7 @@
       - name: Setup openstack 
         shell: sleep 5 && openstack-ansible /opt/openstack-ansible/setup-openstack.yml
 
-        
+
 
 
 
