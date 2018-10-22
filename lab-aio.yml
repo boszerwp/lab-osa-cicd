@@ -32,11 +32,21 @@
         args: 
           chdir: /opt/openstack-ansible
 
-      - name: Prepare host with bootstrap
+      - name: Prepare AIO with bootstrap
         shell: sleep 5 && scripts/bootstrap-aio.sh
         args:
           chdir: /opt/openstack-ansible
 
+      - name: Setup host
+        shell: sleep 5 && openstack-ansible /opt/openstack-ansible/playbooks/setup-hosts.yml
+
+      - name: Setup infrastructure
+        shell: sleep 5 && openstack-ansible /opt/openstack-ansible/playbooks/setup-infrastructure.yml
+
+      - name: Setup openstack 
+        shell: sleep 5 && openstack-ansible /opt/openstack-ansible/setup-openstack.yml
+
+        
 
 
 
