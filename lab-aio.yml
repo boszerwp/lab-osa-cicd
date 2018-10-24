@@ -39,7 +39,7 @@
         shell: sleep 5 && openstack-ansible /opt/openstack-ansible/playbooks/setup-infrastructure.yml
 
       - name: Setup openstack 
-        shell: sleep 5 && openstack-ansible /opt/openstack-ansible/setup-openstack.yml
+        shell: sleep 5 && openstack-ansible /opt/openstack-ansible/playbooks/setup-openstack.yml
 
 
 
